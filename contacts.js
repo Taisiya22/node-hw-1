@@ -33,7 +33,7 @@ async function addContact(data) {
     const contacts = await listContacts();
     const newContact = {
         id: nanoid(),
-        ...data
+        ...data,
     }
     contacts.push(newContact);
     await fs.writeFile(contactsPath, JSON.stringify(contacts, null, 2));
@@ -44,5 +44,5 @@ module.exports = {
     listContacts,
     getContactById,
     addContact,
-    removeContact
+    removeContact,
 }
